@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<block>
+  <name>Decode Cx All With Uplink</name>
+  <key>gsm_decode_cx_uplink</key>
+  <import>import grgsm</import>
+  <make>grgsm.decode_cx($osr, $cell_allocation, $tseq, $sample_rate, $table_name, $id_start, $index, True)</make>
+
+  <param>
+    <name>Oversampling ratio</name>
+    <key>osr</key>
+    <value>2</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>MA</name>
+    <key>cell_allocation</key>
+    <value>[0]</value>
+    <type>int_vector</type>
+    <hide>part</hide>
+  </param>
+
+  <param>
+    <name>Tseq</name>
+    <key>tseq</key>
+    <value>0</value>
+    <type>int</type>    
+  </param>  
+
+  <param>
+    <name>Sample Rate</name>
+    <key>sample_rate</key>
+    <value>0</value>
+    <type>float</type>
+  </param>
+  
+  <param>
+    <name>Table Name</name>
+    <key>table_name</key>
+    <value>""</value>
+    <type>string</type>
+  </param>
+  
+  <param>
+    <name>ID Start</name>
+    <key>id_start</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Index</name>
+    <key>index</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+  
+  <param>
+    <name>Num Streams</name>
+    <key>num_streams</key>
+    <value>1</value>
+    <type>int</type>
+    <hide>part</hide>
+  </param>
+  
+  <check>$num_streams &gt;= 0</check>
+
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <nports>2*$num_streams</nports>
+  </sink>
+
+  <source>
+    <name>CX</name>
+    <type>message</type>
+    <optional>1</optional>
+  </source>
+
+</block>

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+###################################################
+##Polyphase Channelizer
+###################################################
+ -->
+<block>
+	<name>Polyphase Channelizer_TEST</name>
+    <key>pfb_channelizer_ccf_test</key>
+    <category>Custom</category>
+	<import>from grgsm.multichannel_file_source import channelizer_ccf</import>
+	<make>channelizer_ccf(
+	  $nchans_divide,
+	  $taps,
+      $osr,
+      $atten,
+      $ch_map)
+self.$(id).declare_sample_delay($samp_delay)
+	</make>
+        <callback>set_taps($taps)</callback>
+
+	<param>
+		<name>Channels Divide</name>
+		<key>nchans_divide</key>
+        <value>1</value>
+		<type>int</type>
+    </param>
+	<param>
+		<name>Channels Out</name>
+		<key>channel_out</key>
+        <value>1</value>
+		<type>int</type>
+	</param>
+	<param>
+		<name>Taps</name>
+		<key>taps</key>
+		<value></value>
+		<type>real_vector</type>
+	</param>
+	<param>
+		<name>Over Sample Ratio</name>
+		<key>osr</key>
+		<value>1.0</value>
+		<type>real</type>
+	</param>
+	<param>
+		<name>Attenuation</name>
+		<key>atten</key>
+		<value>100</value>
+		<type>real</type>
+	</param>
+	<param>
+		<name>Sample Delay</name>
+		<key>samp_delay</key>
+		<value>0</value>
+		<type>int</type>
+		<hide>part</hide>
+        </param>
+	<param>
+		<name>Channel Map</name>
+		<key>ch_map</key>
+		<value>[]</value>
+		<type>int_vector</type>
+	</param>
+	<param>
+		<name>Bus Connections</name>
+		<key>bus_conns</key>
+                <value>[[0,],]</value>
+		<type>raw</type>
+                <hide>part</hide>
+	</param>
+	<sink>
+		<name>in</name>
+		<type>complex</type>
+	</sink>
+	<source>
+		<name>out</name>
+		<type>complex</type>
+		<nports>$channel_out</nports>
+	</source>
+        <bus_structure_source>$bus_conns</bus_structure_source>
+</block>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<block>
+  <name>Synchronized</name>
+  <key>gsm_sync</key>
+  <import>import grgsm</import>
+  <make>grgsm.sync($num_streams)</make>
+  
+  <param>
+    <name>Num Streams</name>
+    <key>num_streams</key>
+    <value>1</value>
+    <type>int</type>
+    <hide>part</hide>
+  </param>
+  
+  <check>$num_streams &gt;= 0</check>
+
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <nports>$num_streams*2</nports>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>complex</type>
+    <nports>$num_streams*2</nports>
+  </source>
+
+</block>

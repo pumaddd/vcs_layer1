@@ -1,0 +1,2 @@
+./decodeCx --maio 2 --tseq 5 --tslot 1 --hsn 20 --nstream 1 --b 23e6  --s 45.5e6 --ma 615 708 710 --fc 1835e6 --f /home/datqm/Desktop/Share_Folder/Share_Folder/test_613.cfile --n offsetCFile --id_start 1 --sample_start 0
+

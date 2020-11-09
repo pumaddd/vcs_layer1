@@ -1,0 +1,10 @@
+<block>
+	<name>Insert DB</name>
+	<key>gsm_insert_db</key>
+	<import>import grgsm</import>
+	<make>grgsm.insert_db()</make>
+	<sink>
+		<name>msg_in</name>
+		<type>message</type>
+	</sink>
+</block>

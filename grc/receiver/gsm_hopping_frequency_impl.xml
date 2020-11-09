@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<block>
+  <name>Hopping Frequency</name>
+  <key>gsm_hopping_frequency</key>
+  <import>import grgsm</import>
+  <make>grgsm.hopping_frequency($cell_allocation, $fc, $maio, $hsn, $bd, $sample_rate, $table_name, $id_start, $samp_in, $tslot, $index)</make>
+
+  <param>
+    <name>MA</name>
+    <key>cell_allocation</key>
+    <value>[0]</value>
+    <type>int_vector</type>
+    <hide>part</hide>
+  </param>
+
+  <param>
+    <name>Frequency Center</name>
+    <key>fc</key>
+    <value>[0]</value>
+    <type>float_vector</type>
+  </param>
+  
+  <param>
+    <name>Maio</name>
+    <key>maio</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>HSN</name>
+    <key>hsn</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Bandwidth</name>
+    <key>bd</key>
+    <value>0</value>
+    <type>float</type>    
+  </param>
+
+  <param>
+    <name>Sample Rate</name>
+    <key>sample_rate</key>
+    <value>0</value>
+    <type>float</type>
+  </param>
+  
+  <param>
+    <name>Table Name</name>
+    <key>table_name</key>
+    <value>""</value>
+    <type>string</type>
+  </param>
+  
+  <param>
+    <name>ID Start</name>
+    <key>id_start</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+  
+  <param>
+    <name>Index</name>
+    <key>index</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Sample Rate In</name>
+    <key>samp_in</key>
+    <value>0</value>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>Time Slot</name>
+    <key>tslot</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+
+  
+  <param>
+    <name>Num Streams</name>
+    <key>num_streams</key>
+    <value>1</value>
+    <type>int</type>
+    <hide>part</hide>
+  </param>
+
+  <check>$num_streams &gt;= 0</check>
+
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <nports>$num_streams*2</nports>
+  </sink>
+
+  <source>
+    <name>downlink</name>
+    <type>complex</type>
+  </source>
+
+  <source>
+    <name>uplink</name>
+    <type>complex</type>
+  </source>
+
+</block>

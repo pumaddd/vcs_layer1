@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<block>
+  <name>GSM Check Msg</name>
+  <key>gsm_check_msg</key>
+  <import>import grgsm</import>
+  <make>grgsm.check_msg()</make>
+  <sink>
+    <name>msg_in</name>
+    <type>message</type>
+  </sink>
+
+  <source>
+    <name>msg_out</name>
+    <type>message</type>
+  </source>
+</block>

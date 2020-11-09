@@ -1,0 +1,53 @@
+<block>
+  <name>multichannel_file_source</name>
+  <key>multichannel_file_source</key>
+  <category>Custom</category>
+  <import>from grgsm.multichannel_file_source import multi_channelize_layer  # grc-generated hier_block</import>
+  <make>multi_channelize_layer(
+      $input_fc_info,
+      $input_bandwidth_info,
+      $arfcns,
+      )
+  </make>
+  <param>
+    <name>Input Frequence Channels</name>
+    <key>input_fc_info</key>
+    <value>[]</value>
+    <type>real_vector</type>
+    </param>
+  <param>
+    <name>Input Bandwidth Channels</name>
+    <key>input_bandwidth_info</key>
+    <value>[]</value>
+    <type>real_vector</type>
+    </param>
+  <param>
+    <name>Number port in</name>
+    <key>ninput</key>
+    <value>1</value>
+    <type>int</type>
+  </param>
+  <param>
+    <name>Number port out</name>
+    <key>noutput</key>
+    <value>1</value>
+    <type>int</type>
+  </param>
+
+	<param>
+		<name>Output Arfcns</name>
+		<key>arfcns</key>
+		<value>[]</value>
+		<type>int_vector</type>
+	</param>
+	<sink>
+		<name>in</name>
+		<type>complex</type>
+		<nports>$ninput</nports>
+	</sink>
+	<source>
+		<name>out</name>
+		<type>complex</type>
+		<nports>$noutput</nports>
+	</source>
+</block>

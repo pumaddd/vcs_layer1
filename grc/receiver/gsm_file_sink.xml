@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!--
+###################################################
+##File Sink
+###################################################
+ -->
+<block>
+	<name>GSM File Sink</name>
+	<key>gsm_file_sink</key>
+	<import>import grgsm</import>
+	<make>grgsm.file_sink($type.size*$vlen, $file, $fc, $bwd, $f_id, $status, $append)</make>
+	<callback>open($file)</callback>
+	<param>
+		<name>File</name>
+		<key>file</key>
+		<value></value>
+		<type>file_save</type>
+	</param>
+	<param>
+		<name>Frequency Center</name>
+		<key>fc</key>
+		<value>"0"</value>
+		<type>string</type>
+	</param>
+	<param>
+		<name>Bandwidth</name>
+		<key>bwd</key>
+		<value>0</value>
+		<type>float</type>
+	</param>
+	<param>
+    	<name>Status</name>
+    	<key>status</key>
+    	<value>"Down"</value>
+    	<type>string</type>
+  	</param>
+	<param>
+		<name>File ID</name>
+		<key>f_id</key>
+		<value>"0"</value>
+		<type>string</type>
+	</param>
+	<param>
+		<name>Input Type</name>
+		<key>type</key>
+		<type>enum</type>
+		<option>
+			<name>Complex</name>
+			<key>complex</key>
+			<opt>size:gr.sizeof_gr_complex</opt>
+		</option>
+		<option>
+			<name>Float</name>
+			<key>float</key>
+			<opt>size:gr.sizeof_float</opt>
+		</option>
+		<option>
+			<name>Int</name>
+			<key>int</key>
+			<opt>size:gr.sizeof_int</opt>
+		</option>
+		<option>
+			<name>Short</name>
+			<key>short</key>
+			<opt>size:gr.sizeof_short</opt>
+		</option>
+		<option>
+			<name>Byte</name>
+			<key>byte</key>
+			<opt>size:gr.sizeof_char</opt>
+		</option>
+	</param>
+	<param>
+		<name>Vec Length</name>
+		<key>vlen</key>
+		<value>1</value>
+		<type>int</type>
+	</param>
+	<param>
+		<name>Append file</name>
+		<key>append</key>
+		<value>False</value>
+		<type>bool</type>
+		<option>
+			<name>Append</name>
+			<key>True</key>
+		</option>
+		<option>
+			<name>Overwrite</name>
+			<key>False</key>
+		</option>
+	</param>
+	<param>
+		<name>Operator Name</name>
+		<key>name</key>
+		<value>"VIETTEL"</value>
+		<type>string</type>
+	</param>
+	<check>$vlen &gt; 0</check>
+	<sink>
+		<name>in</name>
+		<type>$type</type>
+		<vlen>$vlen</vlen>
+	</sink>
+	<source>
+    	<name>msg_out</name>
+    	<type>message</type>
+    	<optional>1</optional>
+    </source>
+	
+</block>

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--
+###################################################
+##File Source
+###################################################
+ -->
+<block>
+	<name>GSM File Source</name>
+	<key>gsm_file_source</key>
+	<import>import grgsm</import>
+	<make>grgsm.file_source($type.size*$vlen, $offset, $arfcn, $flag, $index)</make>
+	<callback>open($file)</callback>
+	<param>
+		<name>Output Type</name>
+		<key>type</key>
+		<type>enum</type>
+		<option>
+			<name>Complex</name>
+			<key>complex</key>
+			<opt>size:gr.sizeof_gr_complex</opt>
+		</option>
+		<option>
+			<name>Float</name>
+			<key>float</key>
+			<opt>size:gr.sizeof_float</opt>
+		</option>
+		<option>
+			<name>Int</name>
+			<key>int</key>
+			<opt>size:gr.sizeof_int</opt>
+		</option>
+		<option>
+			<name>Short</name>
+			<key>short</key>
+			<opt>size:gr.sizeof_short</opt>
+		</option>
+		<option>
+			<name>Byte</name>
+			<key>byte</key>
+			<opt>size:gr.sizeof_char</opt>
+		</option>
+	</param>
+	<param>
+		<name>Vec Length</name>
+		<key>vlen</key>
+		<value>1</value>
+		<type>int</type>
+	</param>
+	<param>
+		<name>Offset Byte</name>
+		<key>offset</key>
+		<value>0</value>
+		<type>int</type>
+	</param>
+	<param>
+        <name>Index</name>
+        <key>index</key>
+        <value>0</value>
+        <type>int</type>
+    </param>
+	<param>
+		<name>Cell Allocation</name>
+		<key>arfcn</key>
+		<value>[0]</value>
+		<type>int_vector</type>
+	</param>
+	<param>
+		<name>Flag</name>
+		<key>flag</key>
+		<value>[0]</value>
+		<type>int_vector</type>
+	</param>	
+	<check>$vlen &gt; 0</check>
+	<sink>
+    	<name>message_in</name>
+    	<type>message</type>
+    	<optional>1</optional>
+  	</sink>
+	<source>
+		<name>out</name>
+		<type>$type</type>
+		<vlen>$vlen</vlen>
+	</source>
+	<source>
+    	<name>message_out</name>
+    	<type>message</type>
+    	<optional>1</optional>
+  	</source>
+</block>

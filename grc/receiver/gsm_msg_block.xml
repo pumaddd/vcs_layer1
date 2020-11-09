@@ -1,0 +1,10 @@
+<block>
+	<name>Message Handle</name>
+	<key>gsm_msg_block</key>
+	<import>import grgsm</import>
+	<make>grgsm.msg_block()</make>
+	<sink>
+		<name>msg_in</name>
+		<type>message</type>
+	</sink>
+</block>

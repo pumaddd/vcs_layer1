@@ -1,0 +1,21 @@
+<block>
+    <name>Exit Channel</name>
+    <key>gsm_exit_channel</key>
+    <import>import grgsm</import>
+    <make>grgsm.exit_channel($n_thread)</make>
+    <param>
+        <name>Number Thread</name>
+        <key>n_thread</key>
+        <value>1</value>
+        <type>int</type>
+    </param>
+    <sink>
+        <name>msg_in</name>
+        <type>message</type>
+    </sink>
+    <sink>
+        <name>in</name>
+        <type>complex</type>
+        <nports>1</nports>
+    </sink>
+</block>

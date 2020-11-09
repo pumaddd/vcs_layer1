@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<block>
+  <name>Burst File Source FN</name>
+  <key>gsm_burst_file_source_fn</key>
+  <import>import grgsm</import>
+  <make>grgsm.burst_file_source_fn($filename, $fn, $ma)</make>
+
+  <param>
+    <name>Source file</name>
+    <key>filename</key>
+    <value>/tmp/bursts</value>
+    <type>file_open</type>
+  </param>
+
+  <param>
+    <name>frame_number</name>
+    <key>fn</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+  
+  <param>
+    <name>MA List</name>
+    <key>ma</key>
+    <value>[]</value>
+    <type>int_vector</type>
+  </param>
+  
+  <source>
+    <name>out</name>
+    <type>message</type>
+  </source>
+</block>

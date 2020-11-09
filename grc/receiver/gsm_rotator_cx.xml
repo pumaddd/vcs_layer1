@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<block>
+  <name>Rotator Cx</name>
+  <key>gsm_rotator_cx</key>
+  <import>import grgsm</import>
+  <make>grgsm.rotator_cx($cell_allocation, $fc, $bd, $sample_rate, $table_name, $id_start, $samp_in, $index, False)</make>
+
+  <param>
+    <name>MA</name>
+    <key>cell_allocation</key>
+    <value>[0]</value>
+    <type>int_vector</type>
+    <hide>part</hide>
+  </param>
+
+  <param>
+    <name>Frequency Center</name>
+    <key>fc</key>
+    <value>[0]</value>
+    <type>float_vector</type>
+  </param>
+
+  <param>
+    <name>Bandwidth</name>
+    <key>bd</key>
+    <value>0</value>
+    <type>float</type>    
+  </param>
+
+  <param>
+    <name>Sample Rate</name>
+    <key>sample_rate</key>
+    <value>0</value>
+    <type>float</type>
+  </param>
+  
+  <param>
+    <name>Table Name</name>
+    <key>table_name</key>
+    <value>""</value>
+    <type>string</type>
+  </param>
+  
+  <param>
+    <name>ID Start</name>
+    <key>id_start</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Index</name>
+    <key>index</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Sample Rate In</name>
+    <key>samp_in</key>
+    <value>0</value>
+    <type>float</type>
+  </param>
+  
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <nports>1</nports>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>complex</type>
+    <nports>1</nports>
+  </source>
+
+</block>
